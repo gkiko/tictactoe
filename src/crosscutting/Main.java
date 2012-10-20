@@ -10,7 +10,7 @@ import ui.ConsolePresenter;
 
 public class Main {
 
-	public static void main(String[] args) {//asds
+	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
 		Presenter presenter = new ConsolePresenter(System.out);
