@@ -22,7 +22,6 @@ public class CompPlayer extends ConsolePlayer {
 
 		Cell nextMove = nextMoveUntilLegal(board);
 		moveListener.makeMove(nextMove);
-		int[][] arr = board.getMatrix();
 	}
 	
 	private Cell nextMoveUntilLegal(ReadOnlyBoard board) {
