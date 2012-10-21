@@ -33,8 +33,9 @@ public class CompPlayer extends ConsolePlayer {
 	private Cell nextMoveUntilLegal(ReadOnlyBoard board) {
 		while (true) {
 			try {
-				int x = nextIntUntilOk("X=? ");
-				int y = nextIntUntilOk("Y=? ");
+				int[] arr = move();
+				int x = arr[0];
+				int y = arr[1];
 				Cell moveCandidate = new Cell(x, y);
 				Boolean isEmpty = board.isEmpty(moveCandidate);
 				if (isEmpty) {
@@ -47,5 +48,11 @@ public class CompPlayer extends ConsolePlayer {
 				out.println(e.getMessage());
 			}
 		}
+	}
+
+	private int[] move() {
+		int x = (int) (Math.random()*3);
+		int y = (int) (Math.random()*3);
+		return new int[]{x,y};
 	}
 }
