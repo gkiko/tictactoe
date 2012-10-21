@@ -1,15 +1,27 @@
 package model;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Board implements ReadOnlyBoard {
 
 	private final int size = 3;
 	private final CellValue[][] matrix;
+	
+	FileWriter fstream;
+	BufferedWriter out = null;
 
 	private int moveCount; 
 	
 	public Board() {
 		this.matrix = new CellValue[3][3];
 		clear();
+		try {
+			log();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void clear() {
@@ -53,19 +65,27 @@ public class Board implements ReadOnlyBoard {
 			throw new IllegalArgumentException("The cell is not emty.");
 		
 		matrix[cell.x][cell.y] = value;
+		try {
+			append(cell, value);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	public int[][] getMatrix(){
-		int[][] arr = new int[matrix[0].length][matrix.length];
-		for (int i = 0; i < matrix[0].length; i++) {
-			for (int j = 0; j < matrix.length; j++) {
-				if(matrix[i][j] == CellValue.X){
-					arr[i][j] = 1;
-				}else if (matrix[i][j] == CellValue.O) {
-					arr[i][j] = 2;
-				}else arr[i][j] = 0;
-			}
-		}
-		return arr;
+	private void log() throws IOException{
+		fstream = new FileWriter("asdqwe.txt");
+		out = new BufferedWriter(fstream);
+	}
+	
+	private void append(Cell cell, CellValue value) throws IOException{
+		out.write(""+matrix[cell.x][cell.y]+" "+cell.x+" "+cell.y);
+		out.newLine();
+	}
+	
+	public void getLog() throws IOException, IllegalAccessException{
+		if(out != null){
+			out.flush();
+		}else throw new IllegalAccessException("Log not initialized");
+			
 	}
 }
