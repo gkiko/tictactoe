@@ -17,7 +17,7 @@ public class Main {
 		Board board = new Board();
 		Player xPlayer = new ConsolePlayer(scanner, System.out);
 //		Player oPlayer = new ConsolePlayer(scanner, System.out);
-		Player oPlayer = new CompPlayer(scanner, System.out);
+		Player oPlayer = new ConsolePlayer(scanner, System.out);
 		Referee referee = new PrimeReferee();
 		
 		Game game = new Game(board, xPlayer, oPlayer, referee, presenter);
