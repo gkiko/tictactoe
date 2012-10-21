@@ -18,7 +18,7 @@ public class ConsolePlayer implements Player {
 	}
 
 	public void makeMove(ReadOnlyBoard board, PlayerColor playerColor, MoveListener moveListener) {
-		
+		// aq gavaketot
 		printWhoIsOnTurn(playerColor);
 		Cell nextMove = nextMoveUntilLegal(board);
 		moveListener.makeMove(nextMove);
