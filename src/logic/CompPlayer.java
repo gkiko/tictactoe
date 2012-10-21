@@ -23,11 +23,6 @@ public class CompPlayer extends ConsolePlayer {
 		Cell nextMove = nextMoveUntilLegal(board);
 		moveListener.makeMove(nextMove);
 		int[][] arr = board.getMatrix();
-		for (int i = 0; i < arr[0].length; i++) {
-			for (int j = 0; j < arr.length; j++) {
-				System.out.print(arr[i][j]);
-			}System.out.println();
-		}
 	}
 	
 	private Cell nextMoveUntilLegal(ReadOnlyBoard board) {
