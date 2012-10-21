@@ -54,4 +54,18 @@ public class Board implements ReadOnlyBoard {
 		
 		matrix[cell.x][cell.y] = value;
 	}
+	
+	public int[][] getMatrix(){
+		int[][] arr = new int[matrix[0].length][matrix.length];
+		for (int i = 0; i < matrix[0].length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				if(matrix[i][j] == CellValue.X){
+					arr[i][j] = 1;
+				}else if (matrix[i][j] == CellValue.O) {
+					arr[i][j] = 2;
+				}else arr[i][j] = 0;
+			}
+		}
+		return arr;
+	}
 }

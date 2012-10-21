@@ -8,5 +8,5 @@ public interface ReadOnlyBoard {
 	CellValue getValueAt(Cell cell);
 	int getSize();
 	boolean isEmpty(Cell cell);
-
+	public int[][] getMatrix();
 }
